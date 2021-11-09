@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RubImg</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 5%;
+            background-color: #f8f9fa !important;
+            color: #0e6d71;
+            box-shadow: 10px 0px 10px;
+        }
+        
+        .menu {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu li {
+            padding: 20px;
+        }
+        
+        .menu li a {
+            text-decoration: none;
+            color: #0e6d71;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .fullpage {
+            display: flex;
+            flex-direction: column;
+            /* height: 100vh; */
+        }
+        
+        .container {
+            /* color: bl; */
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            align-items: center;
+            justify-content: space-around;
+            padding: 30px;
+            /* background-color: red; */
+            margin: auto;
+            margin-bottom: 100px;
+        }
+        
+        .column {
+            flex-direction: column;
+        }
+        
+        .maintain_distance {
+            height: 50px;
+        }
+        /* .container::after {
+            content: '';
+            height: 100px;
+            width: 100%;
+            background-color: #f9f9f9;
+        } */
+        
+        .main {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullpage">
+        <header>
+            <div class="title">
+                <h1>RubImg</h1>
+            </div>
+
+            <ul class="menu">
+                <li><a href="/">HOME</a> </li>
+                <li>
+                    <a href="{{url_for('encrypt')}}">ENCRYPTION</a>
+                </li>
+                <li><a href="/decrypt ">DECRYPTION</a></li>
+                <li><a href="/help ">HELP</a></li>
+            </ul>
+
+        </header>
+
+        <div class="main">
+
+            <!-- Centered div -->
+            <div class="container column" style="width:80%">
+                <style>
+                    .data_ {
+                        width: 60%;
+                        line-height: 1.5;
+                    }
+                    
+                    .data_ h1 {
+                        font-size: 40px;
+                        font-weight: 700;
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
+                    
+                    .data_ p {
+                        font-size: 20px;
+                        text-align: center;
+                    }
+                </style>
+                <div class="data_">
+                    <h1> Encrypt Image</h1>
+                    <hr style="width: 20%;  color: black;margin:0 auto 40px auto;">
+                    <p><strong> RubImg</strong> helps you in converting your Secret image in an unreadeble form by encrypting it using a highly powerful rubix cube algorithm. You are just one image and a click away for encrypting your image if you have RubImg
+                        website with you.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Upload section -->
+            <style>
+                .upload .button {
+                    all: unset;
+                    padding: 25px 100px;
+                    box-shadow: 5px 5px 5px;
+                    border: 1px solid;
+                    border-radius: 40px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    transform: scaleX(10);
+                    transition: all 1s;
+                }
+                
+                .upload .form input[type='submit']:hover,
+                .upload .button:hover {
+                    background-color: #aee0e2;
+                    transform: scale(1.11);
+                    cursor: pointer;
+                }
+                
+                .upload .form {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                
+                .upload .form input[type='submit'] {
+                    all: unset;
+                    padding: 15px 100px;
+                    box-shadow: 5px 5px 5px;
+                    border: 1px solid;
+                    border-radius: 40px;
+                    margin-top: 60px;
+                    transition: all 1s;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            </style>
+
+            <div class="container column upload" style="margin-bottom: 20px;">
+
+                <h1>The click you have to make</h1>
+                <hr style="width: 20%;  color: black;margin:30px auto 80px auto;">
+
+                <form class="form" action="{{ url_for('encrypt') }}" method="post" enctype="multipart/form-data">
+                    <label for="image">
+                        <h1 class="button">
+                            Upload Image
+                        </h1>
+                    </label>
+                    <input type="file" name="image" id="image" hidden required>
+
+                    <input type="submit" value="Encrypt">
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
